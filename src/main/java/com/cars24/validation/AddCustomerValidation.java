@@ -5,6 +5,8 @@ import com.cars24.data.req.AddCustomerReq;
 public class AddCustomerValidation {
     public void validate_AddCustomerReq(AddCustomerReq addCustomerReq){
         validate_CustomerName(addCustomerReq.getName());
+        validate_CustomerEmail(addCustomerReq.getEmail());
+        validate_Phone(addCustomerReq.getPhone());
         //not null, length 3- max 100, custom exception create
     }
 
@@ -31,6 +33,11 @@ public class AddCustomerValidation {
             throw new IllegalArgumentException("Email contains invalid characters");
         }
 
+    }
+    private void validate_Phone(String Phone){
+        if (Phone == null || Phone.length()!=10){
+            throw new IllegalArgumentException("Phone should be 10 digits");
+        }
     }
 
 }

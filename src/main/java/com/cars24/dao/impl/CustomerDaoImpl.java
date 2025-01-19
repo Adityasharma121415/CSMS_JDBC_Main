@@ -117,7 +117,7 @@ public class CustomerDaoImpl implements CustomersDao {
             preparedStatement.setString(2, deleteCustomerReq.getPhone());
             int rowsDeleted = preparedStatement.executeUpdate();
             if(rowsDeleted>0) return DELETE_SUCCESS_MESSAGE;
-            else return DELETE_ERROR_MESSAGE;
+            return "User Not Found";
         } catch (Exception e) {
             return DELETE_ERROR_MESSAGE;
         }

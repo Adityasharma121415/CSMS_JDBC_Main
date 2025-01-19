@@ -38,7 +38,14 @@ public class CustomerServiceImpl implements CustomerService {
     public String delete_CustomerProfile(DeleteCustomerReq deleteCustomerReq) {
         //validation code to be written
         try{
-            custDelValidator.deleteCustomerValidator(deleteCustomerReq);
+            DeleteCustomerValidation custDelValidator= new DeleteCustomerValidation();
+            if(deleteCustomerReq.getEmail()==null){
+                custDelValidator.validateOnlyPhone(deleteCustomerReq);
+            }else if(deleteCustomerReq.getPhone()==null){
+                custDelValidator.validateOnlyEmail(deleteCustomerReq);
+            }else{
+                custDelValidator.deleteCustomerValidator(deleteCustomerReq);
+            }
             return customerDao.delete_customer(deleteCustomerReq);
         }catch (Exception e){
             System.out.println(e.getMessage());

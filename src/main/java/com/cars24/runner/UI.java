@@ -58,11 +58,27 @@ public class UI {
         }
         public static void deleteCustomer(){
             System.out.println("Enter customer details");
+            System.out.println("Choose option:");
+            System.out.println("1. Delete using Email");
+            System.out.println("2. Delete using Phone");
+            System.out.println("3. Delete using Both");
+            int option = scanner.nextInt();
+            scanner.nextLine();
             DeleteCustomerReq req = new DeleteCustomerReq();
-            System.out.println("Enter customer Email");
-            req.setEmail(scanner.nextLine());
-            System.out.println("Enter customer Phone Number");
-            req.setPhone(scanner.nextLine());
+            if(option == 1){
+                System.out.println("Enter Email  : ");
+                req.setEmail(scanner.nextLine());
+            }else if(option == 2){
+                System.out.println("Enter Phone  : ");
+                req.setPhone(scanner.nextLine());
+            }else if(option == 3){
+                System.out.println("Enter Email  : ");
+                req.setEmail(scanner.nextLine());
+                System.out.println("Enter Phone  : ");
+                req.setPhone(scanner.nextLine());
+            }else{
+                System.out.println("Invalid option");
+            }
             CustomerServiceImpl customerService = new CustomerServiceImpl();
             String result= customerService.delete_CustomerProfile(req);
             System.out.println(result);
