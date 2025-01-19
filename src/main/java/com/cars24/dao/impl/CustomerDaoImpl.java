@@ -76,7 +76,6 @@ public class CustomerDaoImpl implements CustomersDao {
             preparedStatement.setString(2, addCustomerReq.getPhone());
             preparedStatement.setString(3, addCustomerReq.getEmail());
             preparedStatement.setString(4, addCustomerReq.getAddress());
-
             int rowsInserted = preparedStatement.executeUpdate();
             return INSERT_SUCCESS_MESSAGE;
         } catch (Exception e) {
@@ -101,13 +100,11 @@ public class CustomerDaoImpl implements CustomersDao {
                response.setEmail(resultSet.getString("email"));
                response.setPhone(resultSet.getString("phone"));
                response.setAddress(resultSet.getString("address"));
-
             }
             return response;
         } catch (Exception e) {
             System.out.println("Data not found");
         }
-
         return null;
     }
 

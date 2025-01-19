@@ -6,13 +6,15 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         boolean exit=true;
-        System.out.println("Enter choice:");
-        System.out.println("1. Add user");
-        System.out.println("2. Get user");
-        System.out.println("3. Delete user");
-        System.out.println("4. Exit");
+
 
         while(exit){
+            System.out.println("------------------------");
+            System.out.println("Enter choice:");
+            System.out.println("1. Add user");
+            System.out.println("2. Get user");
+            System.out.println("3. Delete user");
+            System.out.println("4. Exit");
             int choice= scanner.nextInt();
             switch(choice){
                 case 1: UI.addCustomer();

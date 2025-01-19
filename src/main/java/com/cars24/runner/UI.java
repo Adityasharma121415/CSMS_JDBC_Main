@@ -15,13 +15,13 @@ public class UI {
             System.out.println("Enter customer details");
             AddCustomerReq req = new AddCustomerReq();
             System.out.println("Enter customer Name");
-            req.setName(scanner.next());
+            req.setName(scanner.nextLine());
             System.out.println("Enter customer Email");
-            req.setEmail(scanner.next());
+            req.setEmail(scanner.nextLine());
             System.out.println("Enter customer Address");
-            req.setAddress(scanner.next());
+            req.setAddress(scanner.nextLine());
             System.out.println("Enter customer Phone Number");
-            req.setPhone(scanner.next());
+            req.setPhone(scanner.nextLine());
             CustomerServiceImpl customerService = new CustomerServiceImpl();
             String result= customerService.register_customer(req);
             System.out.println(result);
@@ -31,13 +31,26 @@ public class UI {
         {
             System.out.println("Search customer details");
             CustomerProfileReq req = new CustomerProfileReq();
-
-            System.out.println("Enter Email  : ");
-            req.setEmail(scanner.next());
-
-            System.out.println("Enter Phone  : ");
-            req.setPhone(scanner.next());
-
+            System.out.println("Choose option:");
+            System.out.println("1. Email");
+            System.out.println("2. Phone");
+            System.out.println("3. Both");
+            int option = scanner.nextInt();
+            scanner.nextLine();
+            if(option == 1){
+                System.out.println("Enter Email  : ");
+                req.setEmail(scanner.nextLine());
+            }else if(option == 2){
+                System.out.println("Enter Phone  : ");
+                req.setPhone(scanner.nextLine());
+            }else if(option == 3){
+                System.out.println("Enter Email  : ");
+                req.setEmail(scanner.nextLine());
+                System.out.println("Enter Phone  : ");
+                req.setPhone(scanner.nextLine());
+            }else{
+                System.out.println("Invalid option");
+            }
             CustomerServiceImpl customerService = new CustomerServiceImpl();
             CustomerProfileRes response = customerService.get_CustomerProfile(req);
             System.out.println(response.toString());
@@ -47,9 +60,9 @@ public class UI {
             System.out.println("Enter customer details");
             DeleteCustomerReq req = new DeleteCustomerReq();
             System.out.println("Enter customer Email");
-            req.setEmail(scanner.next());
+            req.setEmail(scanner.nextLine());
             System.out.println("Enter customer Phone Number");
-            req.setPhone(scanner.next());
+            req.setPhone(scanner.nextLine());
             CustomerServiceImpl customerService = new CustomerServiceImpl();
             String result= customerService.delete_CustomerProfile(req);
             System.out.println(result);

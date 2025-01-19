@@ -40,11 +40,14 @@ public class CustomerProfileRes {
 
     @Override
     public String toString() {
-        return "CustomerProfileRes{" +
+        if(name==null || email==null || phone==null || address==null){
+            return "Customer Not Found";
+        }
+        return "Customer Details: { " +
                 "name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
                 ", address='" + address + '\'' +
-                '}';
+                " }";
     }
 }
